@@ -23,22 +23,22 @@ function rendertodos(){
             var todoElement = document.createElement('li'); // Create the element li on HTML
             var todoText = document.createTextNode(todo); // Create a text node to attach on list element
             
-            var linkElement = document.createElement('a'); // Create a link element 
-            linkElement.setAttribute('href' , '#'); // add a atribute to the link element || the '#'means that the attribute will be added without effect
-            var linkText = document.createTextNode("Delete"); // Create a text node to attacth on link element
+            var buttonDeleteElement = document.createElement('button');
+            buttonDeleteElement.setAttribute('class','buttonDelete');
+            var buttonDeleteText = document.createTextNode("Delete"); // Create a text node to attacth on link element
             
             var pos = todos.indexOf(todo); //Search the index inside the array by the text gaven.
 
-            linkElement.setAttribute('onclick' , 'deleteTodo(' + pos + ')'); 
+            buttonDeleteElement.setAttribute('onclick' , 'deleteTodo(' + pos + ')'); 
             /*
                 This part of code is very important !!!
                 On this line we set the caller to function "deleteTodo" as an attribute of link element.
             
             */ 
             
-            linkElement.appendChild(linkText); // attaching the Childs 
+            buttonDeleteElement.appendChild(buttonDeleteText); // attaching the Childs 
             todoElement.appendChild(todoText); 
-            todoElement.appendChild(linkElement);
+            todoElement.appendChild(buttonDeleteElement);
             listElement.appendChild(todoElement);
         }
     }

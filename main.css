@@ -1,0 +1,39 @@
+input[type = text]{
+    border:none;
+    background-color: #1c1c1c;
+    color: #A9A9A9;
+    border-radius: 5px;
+    width: 300px;
+    height: 20px;
+    
+}
+
+li{
+    text-decoration: none;
+    color: #A9A9A9;
+    width: 400px;
+}
+
+button{
+    border: none;
+    background-color: #1c1c1c;
+    color: #A9A9A9;
+    border-radius: 5px;
+    height: 22px;
+}
+
+body{ 
+    background-color: #363636;
+}
+#app{
+    width: 480px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+.button{
+    float: right;
+}
+.buttonDelete{
+    margin-left: 0%;
+}
