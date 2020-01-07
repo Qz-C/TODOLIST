@@ -3,15 +3,9 @@ input[type = text]{
     background-color: #1c1c1c;
     color: #A9A9A9;
     border-radius: 5px;
-    width: 300px;
-    height: 20px;
+    width:  420px;
+    height: 25px;
     
-}
-
-li{
-    text-decoration: none;
-    color: #A9A9A9;
-    width: 400px;
 }
 
 button{
@@ -19,7 +13,7 @@ button{
     background-color: #1c1c1c;
     color: #A9A9A9;
     border-radius: 5px;
-    height: 22px;
+    height: 25px;
 }
 
 body{ 
@@ -27,13 +21,28 @@ body{
 }
 #app{
     width: 480px;
-    background-color: white;
+    background-color: #363636;
     margin-left: auto;
     margin-right: auto;
 }
 .button{
     float: right;
 }
+.list{
+    margin-top: 10px;
+    background-color: #363636;
+    width: 480px;
+}
 .buttonDelete{
-    margin-left: 0%;
+    float: right;
+}
+.listElements{
+    text-align: left;
+    text-indent: 10px;
+    width: 100%;
+    background-color: aqua ;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    height: 25px;
+    line-height: 25px;
 }

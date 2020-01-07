@@ -1,5 +1,5 @@
 //Reference to DOM elements which will be manipulate within the program
-var listElement = document.querySelector('#app ul');
+var divElement = document.querySelector('#app .list');
 var inputElement = document.querySelector('#app input');
 var buttonElement = document.querySelector('#app button');
 
@@ -15,13 +15,14 @@ Note that the list_todos on local storage was in JSON string format and we need 
 
 //function to render the modification performed on DOM elements
 function rendertodos(){
-    listElement.innerHTML = ''; // Manipulate the text inside one especific element on HTML
+    divElement.innerHTML = ''; // Manipulate the text inside one especific element on HTML
     for(todo of todos)
     {
         if (todo != ' ')
         {
-            var todoElement = document.createElement('li'); // Create the element li on HTML
+            var todoElement = document.createElement('div'); // Create the element li on HTML
             var todoText = document.createTextNode(todo); // Create a text node to attach on list element
+            todoElement.setAttribute('class', 'listElements');
             
             var buttonDeleteElement = document.createElement('button');
             buttonDeleteElement.setAttribute('class','buttonDelete');
@@ -39,7 +40,7 @@ function rendertodos(){
             buttonDeleteElement.appendChild(buttonDeleteText); // attaching the Childs 
             todoElement.appendChild(todoText); 
             todoElement.appendChild(buttonDeleteElement);
-            listElement.appendChild(todoElement);
+            divElement.appendChild(todoElement);
         }
     }
 }
