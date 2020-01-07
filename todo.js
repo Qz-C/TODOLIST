@@ -21,12 +21,18 @@ function rendertodos(){
         if (todo != ' ')
         {
             var todoElement = document.createElement('div'); // Create the element li on HTML
+            var divDeleteButton = document.createElement('div');
+            var divText = document.createElement('div');
             var todoText = document.createTextNode(todo); // Create a text node to attach on list element
-            todoElement.setAttribute('class', 'listElements');
-            
             var buttonDeleteElement = document.createElement('button');
-            buttonDeleteElement.setAttribute('class','buttonDelete');
             var buttonDeleteText = document.createTextNode("Delete"); // Create a text node to attacth on link element
+
+            divDeleteButton.setAttribute('class', 'divButtonDelete');
+            divText.setAttribute('class', 'divText');
+            todoElement.setAttribute('class', 'listElements');
+            buttonDeleteElement.setAttribute('class','buttonDelete');
+            
+            
             
             var pos = todos.indexOf(todo); //Search the index inside the array by the text gaven.
 
@@ -37,10 +43,13 @@ function rendertodos(){
             
             */ 
             
-            buttonDeleteElement.appendChild(buttonDeleteText); // attaching the Childs 
-            todoElement.appendChild(todoText); 
-            todoElement.appendChild(buttonDeleteElement);
+            buttonDeleteElement.appendChild(buttonDeleteText);
+            divDeleteButton.appendChild(buttonDeleteElement);
+            divText.appendChild(todoText);
+            todoElement.appendChild(divDeleteButton);
+            todoElement.appendChild(divText);
             divElement.appendChild(todoElement);
+
         }
     }
 }

@@ -40,9 +40,14 @@ body{
     text-align: left;
     text-indent: 10px;
     width: 100%;
-    background-color: aqua ;
+    background-color: #363636 ;
     margin-bottom: 10px;
     border-radius: 5px;
     height: 25px;
     line-height: 25px;
+}
+.divText{
+    background-color: aqua;
+    border-radius: 5px;
+    width: 420px;
 }
