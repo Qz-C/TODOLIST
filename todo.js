@@ -1,82 +1,96 @@
-//Reference to DOM elements which will be manipulate within the program
 var divElement = document.querySelector('#app .list');
 var inputElement = document.querySelector('#app input');
 var buttonElement = document.querySelector('#app button');
+var buttonDeleteAllElement = document.querySelector('#app .divDeleteAll .Delete-all');
+console.log(buttonDeleteAllElement);
 
+
+var i = 0;
+
+var collors = [
+    "#BA0064",
+    "#CF1178",
+    "#E4288E",
+    "#F64BA8",
+    "#F58BC5",
+    "#FFB7DE"
+]
 
 var todos = JSON.parse(localStorage.getItem('list_todos')) || '';
 
 rendertodos();
-/*
-Fill up our array from local storage.
-In case of the local storage be empty in order to avoid error we put a standard value on array ('')
-Note that the list_todos on local storage was in JSON string format and we need converts it to array using the method parse
-*/
 
-//function to render the modification performed on DOM elements
 function rendertodos(){
-    divElement.innerHTML = ''; // Manipulate the text inside one especific element on HTML
+    divElement.innerHTML = '';
     for(todo of todos)
     {
-        if (todo != ' ')
-        {
-            var todoElement = document.createElement('div'); // Create the element li on HTML
-            var divDeleteButton = document.createElement('div');
-            var divText = document.createElement('div');
-            var todoText = document.createTextNode(todo); // Create a text node to attach on list element
-            var buttonDeleteElement = document.createElement('button');
-            var buttonDeleteText = document.createTextNode("Delete"); // Create a text node to attacth on link element
 
-            divDeleteButton.setAttribute('class', 'divButtonDelete');
-            divText.setAttribute('class', 'divText');
-            todoElement.setAttribute('class', 'listElements');
-            buttonDeleteElement.setAttribute('class','buttonDelete');
-            
-            
-            
-            var pos = todos.indexOf(todo); //Search the index inside the array by the text gaven.
 
-            buttonDeleteElement.setAttribute('onclick' , 'deleteTodo(' + pos + ')'); 
-            /*
-                This part of code is very important !!!
-                On this line we set the caller to function "deleteTodo" as an attribute of link element.
-            
-            */ 
-            
-            buttonDeleteElement.appendChild(buttonDeleteText);
-            divDeleteButton.appendChild(buttonDeleteElement);
-            divText.appendChild(todoText);
-            todoElement.appendChild(divDeleteButton);
-            todoElement.appendChild(divText);
-            divElement.appendChild(todoElement);
+            if (todo != ' ')
+            {
+                var todoElement = document.createElement('div');
+                var divDeleteButton = document.createElement('div');
+                var divText = document.createElement('div');
+                var todoText = document.createTextNode(todo); 
+                var buttonDeleteElement = document.createElement('button');
+                var buttonDeleteText = document.createTextNode("Delete");
+                divDeleteButton.setAttribute('class', 'divButtonDelete');
+                divText.setAttribute('class', 'divText');
+                todoElement.setAttribute('class', 'listElements');
+                buttonDeleteElement.setAttribute('class','buttonDelete');
 
-        }
+                if(i === 6)
+                {
+                    i = 0;
+                    collors.reverse();
+                }
+                divText.style.backgroundColor = collors[i];
+                i = i+1;
+
+                var pos = todos.indexOf(todo);
+
+                buttonDeleteElement.setAttribute('onclick' , 'deleteTodo(' + pos + ')'); 
+                
+                buttonDeleteElement.appendChild(buttonDeleteText);
+                divDeleteButton.appendChild(buttonDeleteElement);
+                divText.appendChild(todoText);
+                todoElement.appendChild(divDeleteButton);
+                todoElement.appendChild(divText);
+                divElement.appendChild(todoElement);
+
+            }
+    }
+
+    i = 0;
+
+    
+    if(collors[0] === "#FFB7DE")
+    {   
+        collors.reverse(); 
     }
 }
 
 function addTodos(){
-    var todo = inputElement.value; // Get the value inserted on input box
-    todos.push(todo + ' '); // Add the text on end of the array
-    inputElement.value = ''; // Clear the input box
-    rendertodos(); // Show the new element on screen
-    saveOnLocalStorage(); // Saves each modification on todo_lists
+    var todo = inputElement.value;
+    todos.push(todo + ' ');
+    inputElement.value = ''; 
+    rendertodos(); 
+    saveOnLocalStorage();
 }
 
 function deleteTodo(pos){
-    todos.splice(pos, 1); // Remove n elements (parameter 2), start on position (parameter 1)
-    rendertodos(); // Show the new todo on screen 
-    saveOnLocalStorage(); // Saves each modification on  todo_lists
+    todos.splice(pos, 1); 
+    rendertodos(); 
+    saveOnLocalStorage(); 
 }
 
-buttonElement.onclick = addTodos; // Add the new element whem the button is clicked
-
+buttonElement.onclick = addTodos; 
 function saveOnLocalStorage()
 {
     localStorage.setItem('list_todos', JSON.stringify(todos));
-    /*
-        This function storages values on local storage with key::vale
-        It only recognizes two strings as valid parameters, so we need to convert the array to a JSON string.
+}
 
-
-    */
+buttonDeleteAllElement.onclick = function(){
+    todos = '';
+    rendertodos();
 }

@@ -1,3 +1,9 @@
+*{
+    color: white;
+    font-family: Noto Sans;
+    
+}
+
 input[type = text]{
     border:none;
     background-color: #1c1c1c;
@@ -5,7 +11,6 @@ input[type = text]{
     border-radius: 5px;
     width:  420px;
     height: 25px;
-    
 }
 
 button{
@@ -50,4 +55,10 @@ body{
     background-color: aqua;
     border-radius: 5px;
     width: 420px;
+}
+.divDeleteAll{
+    width: 420px;
+}
+.Delete-all{
+    float: right;
 }
