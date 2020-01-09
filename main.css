@@ -52,12 +52,11 @@ body{
     line-height: 25px;
 }
 .divText{
-    background-color: aqua;
     border-radius: 5px;
     width: 420px;
 }
 .divDeleteAll{
-    width: 420px;
+    width: 480px;
 }
 .Delete-all{
     float: right;

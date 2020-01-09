@@ -2,7 +2,6 @@ var divElement = document.querySelector('#app .list');
 var inputElement = document.querySelector('#app input');
 var buttonElement = document.querySelector('#app button');
 var buttonDeleteAllElement = document.querySelector('#app .divDeleteAll .Delete-all');
-console.log(buttonDeleteAllElement);
 
 
 var i = 0;
@@ -26,7 +25,7 @@ function rendertodos(){
     {
 
 
-            if (todo != ' ')
+            if (todo != '')
             {
                 var todoElement = document.createElement('div');
                 var divDeleteButton = document.createElement('div');
@@ -44,7 +43,10 @@ function rendertodos(){
                     i = 0;
                     collors.reverse();
                 }
+
                 divText.style.backgroundColor = collors[i];
+                divText.style.boxShadow = "-2px 2px 20px black";
+
                 i = i+1;
 
                 var pos = todos.indexOf(todo);
@@ -72,7 +74,7 @@ function rendertodos(){
 
 function addTodos(){
     var todo = inputElement.value;
-    todos.push(todo + ' ');
+    todos.push(todo);
     inputElement.value = ''; 
     rendertodos(); 
     saveOnLocalStorage();
@@ -84,13 +86,28 @@ function deleteTodo(pos){
     saveOnLocalStorage(); 
 }
 
-buttonElement.onclick = addTodos; 
 function saveOnLocalStorage()
 {
     localStorage.setItem('list_todos', JSON.stringify(todos));
 }
 
-buttonDeleteAllElement.onclick = function(){
-    todos = '';
-    rendertodos();
+function deleteAll(){
+    var op = confirm("\nNote that it will clear your entire list !\n\n Wish to proceed ?");
+    if(op === true)
+    {
+        todos = [];
+        rendertodos();
+        saveOnLocalStorage();
+    }
 }
+function enterKey(){
+    if(event.keyCode == 13)
+    {
+        addTodos();
+    }
+}
+
+buttonElement.onclick = addTodos; 
+buttonDeleteAllElement.onclick = deleteAll;
+document.onkeydown = enterKey;
+
