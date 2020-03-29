@@ -37,4 +37,4 @@ I could applied many key concepts upon this brief journey:
 
 # Importante NOTE:
 
-##To use this app properly you must run it in Google Chrome browser.
+## To use this app properly you must run it in Google Chrome browser.
