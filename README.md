@@ -1,6 +1,6 @@
 # SIMPLE TODO LIST
 
-![](/filename TODOLIST.PNG)
+![](/filenameTODOLIST.PNG)
 
 ## This is my hello world in JavaScript.
 
