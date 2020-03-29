@@ -6,15 +6,15 @@ I built this app following the Rocketseat's starter JavaScript Course (https://s
 
 ## Technologies involved
 
-### HMTL5
+### - HMTL5
 
 This technology is the base of the whole web development, this is a markup language that is responsible to put the things together and is the skeleton of any the frontend.
 
-### CSS3
+### - CSS3
 
 Once HTML5 is the base of a web-page, CSS3 is what makes everything looks beautiful, giving a better experience to the user end. It is responsible for the stylization of the content, positioning and some animations in front-end.
 
-### Vanilla JavaScript
+### - Vanilla JavaScript
 
 JavaScript is the only language that the browser can understand, and in the context of this app, it is responsible to manipulate the DOM-elements on the client-side.
 
