@@ -26,8 +26,15 @@ My aiming when I jump into this project was, understand the main concepts of the
 
 I could applied many key concepts upon this brief journey:
 
-- Structuring with HTML5, using the main tags.
+- Structuring with HTML5, using the main tags;
 
-- DOM-manipulation with Vanilla JavaScript
+- DOM-manipulation with Vanilla JavaScript;
 
-- And stylization using CSS3
+- Storage of the data in the browser's local storage.
+
+- And stylization using CSS3;
+
+
+# Importante NOTE:
+
+##To use this app properly you must run it in Google Chrome browser.
